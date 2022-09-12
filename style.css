@@ -1,65 +1,46 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:[email protected];300;400;500;600;700&display=swap');
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
 body{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  background: #343F4F;
-}
-.wrapper{
-  display: flex;
-}
-.wrapper .static-txt{
-  color: #fff;
-  font-size: 60px;
-  font-weight: 400;
-}
-.wrapper .dynamic-txts{
-  margin-left: 15px;
-  height: 90px;
-  line-height: 90px;
+  background: #000;
+  padding-top: 10px;
+} 
+
+p{
+  color: lime; 
+  font-family: "Courier";
+  font-size: 20px;
+  margin: 10px 0 0 10px;
+  white-space: nowrap;
   overflow: hidden;
+  width: 30em;
+  animation: type 4s steps(60, end); 
 }
-.dynamic-txts li{
-  list-style: none;
-  color: #FC6D6D;
-  font-size: 60px;
-  font-weight: 500;
-  position: relative;
-  top: 0;
-  animation: slide 12s steps(4) infinite;
+
+p:nth-child(2){
+  animation: type2 8s steps(60, end);
 }
-@keyframes slide {
-  100%{
-    top: -360px;
-  }
+
+p a{
+  color: lime;
+  text-decoration: none;
 }
-.dynamic-txts li span{
-  position: relative;
-  margin: 5px 0;
-  line-height: 90px;
+
+span{
+  animation: blink 1s infinite;
 }
-.dynamic-txts li span::after{
-  content: "";
-  position: absolute;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: #343F4F;
-  border-left: 2px solid #FC6D6D;
-  animation: typing 3s steps(10) infinite;
+
+@keyframes type{ 
+  from { width: 0; } 
+} 
+
+@keyframes type2{
+  0%{width: 0;}
+  50%{width: 0;}
+  100%{ width: 100; } 
+} 
+
+@keyframes blink{
+  to{opacity: .0;}
 }
-@keyframes typing {
-  40%, 60%{
-    left: calc(100% + 30px);
-  }
-  100%{
-    left: 0;
-  }
+
+::selection{
+  background: black;
 }
